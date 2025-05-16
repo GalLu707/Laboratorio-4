@@ -6,24 +6,28 @@ public class Cifrado_lab {
 
     public static void main(String[] args) {
 
-        int numerocesar = 0;
         Scanner scanner = new Scanner(System.in);
         scanner.useDelimiter("\\n");
         int opcion = 0;
+
+        //Menú opciones
         while (opcion != 4) {
             System.out.println("---MENU---");
-            System.out.println("1. cifrado");
+            System.out.println("1. Cifrado César");
             System.out.println("2. Filtrar");
-            System.out.println("3. Codigo Enigma");
+            System.out.println("3. Código Enigma");
             System.out.println("4. Salir del programa");
 
-            System.out.println("ingrese a la opcion que desea ingresar:");
+            System.out.print("Ingrese la opción que desea ingresar: ");
             opcion = scanner.nextInt();
             switch (opcion) {
 
                 case 1:
-                    String abecedarioMayuscula = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //Se almacena una variable con las letras del alfabeto para usar el índice del string en el ciclo for
+
+                    //Se almacena una variable con las letras del alfabeto para usar el índice del string en el ciclo for
+                    String abecedarioMayuscula = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
                     String abecedarioMinuscula = "abcdefghijklmnopqrstuvwxyz";
+
                     String mensajeCifrado = "";
                     String mensajeOriginal;
 
@@ -38,20 +42,23 @@ public class Cifrado_lab {
                     System.out.print("Favor ingrese cuantos espacios deseas que se desplaze: ");
                     desplazamiento = scanner.nextInt();
 
+                    //Se resta 1 ya que empieza a contar desde 1 y no de 0
                     tamanioMensaje = mensajeOriginal.length() - 1;
 
                     for (int i = 0; i <= tamanioMensaje; i++) {
                         char posicionCaracter = mensajeOriginal.charAt(i);
 
-                        if (abecedarioMayuscula.indexOf(posicionCaracter) != -1) {
+                        if (abecedarioMayuscula.indexOf(posicionCaracter) != -1) { //En caso de ser mayúscula se usa el string del abecedario mayúscula
                             posicionOriginal = abecedarioMayuscula.indexOf(posicionCaracter);
-                            posicionNueva = (posicionOriginal + desplazamiento) % 26;
+                            posicionNueva = (posicionOriginal + desplazamiento) % 26; //Se usa %26 para no exceder los límites del string y retornar al principio de ser necesario
                             mensajeCifrado += abecedarioMayuscula.charAt(posicionNueva);
-                        } else if (abecedarioMinuscula.indexOf(posicionCaracter) != -1) {
+
+                        } else if (abecedarioMinuscula.indexOf(posicionCaracter) != -1) { //Se verifica lo mismo que el anterior, pero en minúscula
                             posicionOriginal = abecedarioMinuscula.indexOf(posicionCaracter);
                             posicionNueva = (posicionOriginal + desplazamiento) % 26;
                             mensajeCifrado += abecedarioMinuscula.charAt(posicionNueva);
-                        } else {
+
+                        } else { //Si no se encontró el char en ninguno de los 2 string, se conserva el char
                             mensajeCifrado += posicionCaracter;
                         }
                     }
