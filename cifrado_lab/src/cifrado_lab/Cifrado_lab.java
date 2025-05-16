@@ -36,10 +36,10 @@ public class Cifrado_lab {
                      posicionOriginal,
                      posicionNueva;
 
-                    System.out.print("Favor ingrese una frase: ");
+                    System.out.print("Favor ingrese una frase: \n");
                     mensajeOriginal = scanner.next();
 
-                    System.out.print("Favor ingrese cuantos espacios deseas que se desplaze: ");
+                    System.out.print("Favor ingrese cuantos espacios deseas que se desplaze: \n");
                     desplazamiento = scanner.nextInt();
 
                     //Se resta 1 ya que empieza a contar desde 1 y no de 0
@@ -69,31 +69,32 @@ public class Cifrado_lab {
                 case 2:
                     String frase,
                      palabraEvaluar;
+
                     int longitudMinima,
                      longitudFrase;
 
-                    System.out.print("Favor ingrese una frase: ");
+                    System.out.print("Favor ingrese una frase: \n");
                     frase = scanner.nextLine();
 
-                    System.out.print("Favor ingrese la longitud mínima para imprimir: ");
+                    System.out.print("Favor ingrese la longitud mínima para imprimir: \n");
                     longitudMinima = scanner.nextInt();
 
                     palabraEvaluar = "";
-                    frase += " ";
+                    frase += " "; //se agrega un espacio para que detecte la última palabra
 
                     longitudFrase = frase.length() - 1;
 
-                    for (int i = 0; i <= longitudFrase; i++) {
+                    for (int i = 0; i <= longitudFrase; i++) { //for para crear la palabra a evaluar a partir de la variable frase
                         char caracterFrase = frase.charAt(i);
-                        if (caracterFrase != ' ') {
-                            if (".,:;¿?¡!".indexOf(caracterFrase) == -1) {
+                        if (caracterFrase != ' ') { //se asume que un espacio da fin a una palabra
+                            if (".,:;¿?¡!".indexOf(caracterFrase) == -1) { //se evalua si caracterFrase contiene un signo de puntuación para así no añadirlo
                                 palabraEvaluar += caracterFrase;
                             }
                         } else {
                             if (palabraEvaluar.length() > longitudMinima) {
                                 System.out.println(palabraEvaluar);
                             }
-                            palabraEvaluar = "";
+                            palabraEvaluar = ""; //se reinicia la variable para continuar con la frase siguiente
                         }
                     }
                     break;
@@ -101,16 +102,12 @@ public class Cifrado_lab {
 
                     break;
                 default:
-                    System.out.println("su opcion no e s valida, ingrese una funcion existente");
+                    System.out.println("Su opción no es válida. Ingrese una función existente: ");
                     break;
 
             }
 
         }
-
-        System.out.println("Ingrese una frase de su preferencia;");
-        String oracionUsuario = scanner.next();
-
     }
 
 }
