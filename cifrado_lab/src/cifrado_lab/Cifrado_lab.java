@@ -7,7 +7,7 @@ public class Cifrado_lab {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        scanner.useDelimiter("\\n");
+        scanner.useDelimiter("\n");
         int opcion = 0;
 
         //Menú opciones
@@ -67,15 +67,33 @@ public class Cifrado_lab {
                     System.out.println(mensajeCifrado);
                     break;
                 case 2:
-                    System.out.println("---Filtrar---");
-                    System.out.println("Ingrese una frase completa de su preferencia");
-                    String FraseUsuario = scanner.next();
-                    System.out.println("ingrese un numero entero positivo");
-                    while (numerocesar <= 0) {
-                        numerocesar = scanner.nextInt();
-                        if (numerocesar <= 0) {
-                            System.out.println("su numero no es valido");
-                            System.out.println("ingrese un numero valido");
+                    String frase,
+                     palabraEvaluar;
+                    int longitudMinima,
+                     longitudFrase;
+
+                    System.out.print("Favor ingrese una frase: ");
+                    frase = scanner.nextLine();
+
+                    System.out.print("Favor ingrese la longitud mínima para imprimir: ");
+                    longitudMinima = scanner.nextInt();
+
+                    palabraEvaluar = "";
+                    frase += " ";
+
+                    longitudFrase = frase.length() - 1;
+
+                    for (int i = 0; i <= longitudFrase; i++) {
+                        char caracterFrase = frase.charAt(i);
+                        if (caracterFrase != ' ') {
+                            if (".,:;¿?¡!".indexOf(caracterFrase) == -1) {
+                                palabraEvaluar += caracterFrase;
+                            }
+                        } else {
+                            if (palabraEvaluar.length() > longitudMinima) {
+                                System.out.println(palabraEvaluar);
+                            }
+                            palabraEvaluar = "";
                         }
                     }
                     break;
