@@ -101,7 +101,8 @@ public class Cifrado_lab {
                     }
                     break;
                 case 3:
-
+                    
+                    //Declarar variables
                     int menuEnigma = 0,
                      cantidadPares,
                      longitudTexto;
@@ -129,12 +130,14 @@ public class Cifrado_lab {
 
                                 longitudTexto = textoIngresado.length();
 
+                                // se verifica por medio del mod si añadirlo primero o no, verificando si es de indice par
                                 for (int i = 0; i < longitudTexto; i++) {
                                     if (i % 2 == 0) {
                                         textoEncriptado += textoIngresado.charAt(i);
                                     }
                                 }
 
+                                //misma logica que el anterior
                                 for (int i = 0; i < longitudTexto; i++) {
                                     if (i % 2 != 0) {
                                         textoEncriptado += textoIngresado.charAt(i);
@@ -153,12 +156,12 @@ public class Cifrado_lab {
 
                                 longitudTexto = textoIngresado.length();
 
-                                cantidadPares = (longitudTexto + 1) / 2;
+                                cantidadPares = (longitudTexto + 1) / 2; //se añade 1 en caso que sea impar la longitud
 
                                 mitadPares = textoIngresado.substring(0, cantidadPares);
                                 mitadImpares = textoIngresado.substring(cantidadPares);
 
-                                for (int i = 0; i < longitudTexto; i++) {
+                                for (int i = 0; i < longitudTexto; i++) { //misma lógica que el anterior
                                     if (i % 2 == 0) {
                                         textoDesencriptado += mitadPares.charAt(i / 2);
                                     } else {
