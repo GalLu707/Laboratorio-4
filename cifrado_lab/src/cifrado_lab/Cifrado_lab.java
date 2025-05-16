@@ -18,7 +18,7 @@ public class Cifrado_lab {
             System.out.println("3. Código Enigma");
             System.out.println("4. Salir del programa");
 
-            System.out.print("Ingrese la opción que desea ingresar: ");
+            System.out.println("Ingrese la opción que desea ingresar: ");
             opcion = scanner.nextInt();
             switch (opcion) {
 
@@ -76,7 +76,7 @@ public class Cifrado_lab {
                      longitudFrase;
 
                     System.out.println("Favor ingrese una frase: \n");
-                    frase = scanner.nextLine();
+                    frase = scanner.next();
 
                     System.out.println("Favor ingrese la longitud mínima para imprimir: \n");
                     longitudMinima = scanner.nextInt();
@@ -101,6 +101,37 @@ public class Cifrado_lab {
                     }
                     break;
                 case 3:
+                    
+                    System.out.println("---Codigo Enigma---");
+                    while(minimenu!=3){
+                     System.out.println("--MENU--");
+                    System.out.println("a. Encriptar texto");
+                    System.out.println("b. Desencriptar texto");
+                    System.out.println("c. regresar ");
+                    
+                    System.out.println("ingrese la opcion a la que desea ingresar");
+                    string minimenu= scanner.nextInt();
+                    switch(minimenu!= "c"){
+                            case "a":
+                                System.out.println("---encriptar texto---");
+                                
+                                
+                                break;
+                            case "b":
+                                System.out.println("---desencriptar texto---");
+                                
+                                
+                                break;     
+                            case "c":
+                                System.out.println("saliendo de codigo enigma :)");
+                                break;
+                            default: 
+                                System.out.println("opcion no valida");
+                                break;   
+                    }
+                    }
+                    
+                    
 
                     break;
                 case 4: 
