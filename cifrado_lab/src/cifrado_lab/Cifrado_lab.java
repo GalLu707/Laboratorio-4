@@ -23,6 +23,7 @@ public class Cifrado_lab {
             switch (opcion) {
 
                 case 1:
+                    System.out.println("---CIFRADO---");
 
                     //Se almacena una variable con las letras del alfabeto para usar el índice del string en el ciclo for
                     String abecedarioMayuscula = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -36,10 +37,10 @@ public class Cifrado_lab {
                      posicionOriginal,
                      posicionNueva;
 
-                    System.out.print("Favor ingrese una frase: \n");
+                    System.out.println("Favor ingrese una frase: \n");
                     mensajeOriginal = scanner.next();
 
-                    System.out.print("Favor ingrese cuantos espacios deseas que se desplaze: \n");
+                    System.out.println("Favor ingrese cuantos espacios deseas que se desplaze: \n");
                     desplazamiento = scanner.nextInt();
 
                     //Se resta 1 ya que empieza a contar desde 1 y no de 0
@@ -63,20 +64,21 @@ public class Cifrado_lab {
                         }
                     }
 
-                    System.out.print("Menaje cifrado: ");
+                    System.out.println("Menaje cifrado: ");
                     System.out.println(mensajeCifrado);
                     break;
                 case 2:
+                    System.out.println("---FILTRAR---");
                     String frase,
                      palabraEvaluar;
 
                     int longitudMinima,
                      longitudFrase;
 
-                    System.out.print("Favor ingrese una frase: \n");
+                    System.out.println("Favor ingrese una frase: \n");
                     frase = scanner.nextLine();
 
-                    System.out.print("Favor ingrese la longitud mínima para imprimir: \n");
+                    System.out.println("Favor ingrese la longitud mínima para imprimir: \n");
                     longitudMinima = scanner.nextInt();
 
                     palabraEvaluar = "";
@@ -100,6 +102,9 @@ public class Cifrado_lab {
                     break;
                 case 3:
 
+                    break;
+                case 4: 
+                    System.out.println("Saliendo del programa");
                     break;
                 default:
                     System.out.println("Su opción no es válida. Ingrese una función existente: ");
