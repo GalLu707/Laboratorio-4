@@ -23,7 +23,7 @@ public class Cifrado_lab {
             switch (opcion) {
 
                 case 1:
-                    System.out.println("---CIFRADO---");
+                    System.out.println("---CIFRADO CESAR---");
 
                     //Se almacena una variable con las letras del alfabeto para usar el índice del string en el ciclo for
                     String abecedarioMayuscula = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -75,10 +75,10 @@ public class Cifrado_lab {
                     int longitudMinima,
                      longitudFrase;
 
-                    System.out.println("Favor ingrese una frase: \n");
+                    System.out.print("Favor ingrese una frase: ");
                     frase = scanner.next();
 
-                    System.out.println("Favor ingrese la longitud mínima para imprimir: \n");
+                    System.out.print("Favor ingrese la longitud mínima para imprimir: ");
                     longitudMinima = scanner.nextInt();
 
                     palabraEvaluar = "";
@@ -101,44 +101,89 @@ public class Cifrado_lab {
                     }
                     break;
                 case 3:
-                    
-                    System.out.println("---Codigo Enigma---");
-                    while(minimenu!=3){
-                     System.out.println("--MENU--");
-                    System.out.println("a. Encriptar texto");
-                    System.out.println("b. Desencriptar texto");
-                    System.out.println("c. regresar ");
-                    
-                    System.out.println("ingrese la opcion a la que desea ingresar");
-                    string minimenu= scanner.nextInt();
-                    switch(minimenu!= "c"){
-                            case "a":
-                                System.out.println("---encriptar texto---");
-                                
-                                
+
+                    int menuEnigma = 0,
+                     cantidadPares,
+                     longitudTexto;
+
+                    String textoIngresado, textoEncriptado, textoDesencriptado, mitadPares, mitadImpares;
+
+                    System.out.println("---Código Enigma---");
+
+                    while (menuEnigma != 3) {
+                        System.out.println("--MENU--");
+                        System.out.println("1. Encriptar texto");
+                        System.out.println("2. Desencriptar texto");
+                        System.out.println("3. regresar ");
+
+                        System.out.print("Ingrese la opcion a la que desea ingresar: ");
+                        menuEnigma = scanner.nextInt();
+
+                        switch (menuEnigma) {
+                            case 1:
+                                System.out.println("---Encriptar Texto---");
+                                System.out.print("Ingrese un texto a encriptar: ");
+                                textoIngresado = scanner.next();
+
+                                textoEncriptado = "";
+
+                                longitudTexto = textoIngresado.length();
+
+                                for (int i = 0; i < longitudTexto; i++) {
+                                    if (i % 2 == 0) {
+                                        textoEncriptado += textoIngresado.charAt(i);
+                                    }
+                                }
+
+                                for (int i = 0; i < longitudTexto; i++) {
+                                    if (i % 2 != 0) {
+                                        textoEncriptado += textoIngresado.charAt(i);
+                                    }
+                                }
+
+                                System.out.println("Texto encriptado: " + textoEncriptado);
                                 break;
-                            case "b":
-                                System.out.println("---desencriptar texto---");
-                                
-                                
-                                break;     
-                            case "c":
-                                System.out.println("saliendo de codigo enigma :)");
+
+                            case 2:
+                                System.out.println("---Desencriptar Texto---");
+                                System.out.print("Ingrese un texto a desencriptar: ");
+                                textoIngresado = scanner.next();
+
+                                textoDesencriptado = "";
+
+                                longitudTexto = textoIngresado.length();
+
+                                cantidadPares = (longitudTexto + 1) / 2;
+
+                                mitadPares = textoIngresado.substring(0, cantidadPares);
+                                mitadImpares = textoIngresado.substring(cantidadPares);
+
+                                for (int i = 0; i < longitudTexto; i++) {
+                                    if (i % 2 == 0) {
+                                        textoDesencriptado += mitadPares.charAt(i / 2);
+                                    } else {
+                                        textoDesencriptado += mitadImpares.charAt(i / 2);
+                                    }
+                                }
+
+                                System.out.println("Texto desencriptado: " + textoDesencriptado);
+
                                 break;
-                            default: 
-                                System.out.println("opcion no valida");
-                                break;   
+                            case 3:
+                                System.out.println("Saliendo de codigo enigma :)");
+                                break;
+                            default:
+                                System.out.println("Opción no válida. Ingrese una opción existente: ");
+                                break;
+                        }
                     }
-                    }
-                    
-                    
 
                     break;
-                case 4: 
-                    System.out.println("Saliendo del programa");
+                case 4:
+                    System.out.println("Saliendo del programa...");
                     break;
                 default:
-                    System.out.println("Su opción no es válida. Ingrese una función existente: ");
+                    System.out.println("Su opción no es válida. Ingrese una opción existente: ");
                     break;
 
             }
